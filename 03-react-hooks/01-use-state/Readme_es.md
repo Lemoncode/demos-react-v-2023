@@ -38,11 +38,11 @@ export const MyComponent: React.FC = () => {
 ```
 
 - Usando la palabra reservada _export_ podemos exponer este fichero al exterior.
-- No es extrictamente necesario tiparlo con _React.FC_ (Function Component), pero
+- No es estrictamente necesario tiparlo con _React.FC_ (Function Component), pero
   es buena idea, todo lo que nos atemos a _Typescript_ nos servirá para tener
   menos dolores de cabeza en el futuro.
 - El componente no es más que una función que devuelve elementos de React.
-  Fijate que en este caso no hemos puesto _Props_ ya que no consume ninguna
+  Fíjate que en este caso no hemos puesto _Props_ ya que no consume ninguna
   del exterior.
 
 - Vamos a por la parte interesante, seguro que nuestra mente Java o Angular
@@ -162,6 +162,92 @@ setear el estado de _myName_.
 Es un cambio de mentalidad grande,... intenta repetir este ejemplo
 sin ayuda y entenderlo bien, es tu primer gran paso para entender
 cómo funciona esta tecnología.
+
+> Vamos a por un bonus que pasaría si el useState de MyName está en App?
+
+_./src/app.tsx_
+
+```diff
+import React from "react";
+import {MyComponent} from './demo';
+
+export const App = () => {
++  const [myName, setMyName] = React.useState('John Doe');
+
+   return <MyComponent />;
+```
+
+Aquí fíjate que demo.tsx se empieza a quejar, porque ya no tiene el myName, vamos a hacerlo un component más generico.
+
+Vamos a definir un contrato en las props de demo que tenga el nombre y el callback para establecer el nombre (en este caso
+demo pasa a ser un componente tonto, sin estado, se llama también presentacional).
+
+```diff
+import React from "react";
+
++ interface Props {
++  value : string;
++  onChange : (value : string) => void;
++ }
+
+- export const MyComponent: React.FC = () => {
++ export const MyComponent: React.FC<Props> = (props) => {
+
+  return (
+    <>
+-      <h4>{myName}</h4>
++      <h4>{props.value}</h4>
+-      <input value={myName} onChange={(e) => setMyName(e.target.value)} />
++      <input value={props.value} onChange={(e) => props.onChange(e.target.value)} />
+    </>
+  );
+};
+```
+
+Si te fijas queda todo manchado con _props._ vamos a aplicar destructuring.
+
+```diff
+import React from "react";
+
+interface Props {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export const MyComponent: React.FC<Props> = (props) => {
++ const { value, onChange } = props;
+
+  return (
+    <>
+-      <h4>{props.value}</h4>
++      <h4>{value}</h4>
+      <input
+-        value={props.value}
++        value={value}
+-        onChange={(e) => props.onChange(e.target.value)}
++        onChange={(e) => onChange(e.target.value)}
+
+      />
+    </>
+  );
+};
+```
+
+- Vamos ahora a actualizar _App_
+
+```diff
+import React from "react";
+import { MyComponent } from "./demo";
+
+export const App = () => {
+  const [myName, setMyName] = React.useState("John Doe");
+
+-  return <MyComponent />;
++  return <MyComponent value={myName} onChange={setMyName} />;
+};
+```
+
+Esto es muy común, un componente padre le pasa un estado a un componente hijo, y el componente hijo le devuelve el nuevo estado, sobre todo cuando haces wrappers de por ejemplo un input con un formato especial.
 
 # ¿Te apuntas a nuestro máster?
 
