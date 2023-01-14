@@ -18,6 +18,29 @@ y no modificar el objeto original.
 npm install
 ```
 
+- Deshacemos lo que hicimos en app y las props de demo, y empezamos a usar objetos.
+
+- Volvemos a limpiar App.
+
+- Y en demo lo dejamos de esta manera (punto de partida):
+
+_./src/demo.tsx_
+
+```tsx
+import React from "react";
+
+export const MyComponent: React.FC = () => {
+  const [myName, setMyName] = React.useState("John Doe");
+
+  return (
+    <>
+      <h4>{myName}</h4>
+      <input value={myName} onChange={(e) => setMyName(e.target.value)} />
+    </>
+  );
+};
+```
+
 - Vamos a almacenar en el estado un objeto que tenga el nombre
   y apellido de un usuario, de primeras podemos escribir algo así como:
 
