@@ -53,7 +53,7 @@ export const App = () => {
 };
 ```
 
-- Es hora de instanciar ese compente principal, para poder integrarlo con el navegador
+- Es hora de instanciar ese componente principal, para poder integrarlo con el navegador
   tenemos que hacer uso a _ReactDOM.render_
 
 _./src/index.tsx_

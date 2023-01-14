@@ -26,7 +26,7 @@ nos instalaría la versión actual en nuestra máquina de forma global, y si cre
 Para crear un proyecto con soporte para _typescript_:
 
 ```bash
-npx create-react-app my-app --template typescript
+npx create-react-app my-app-2 --template typescript
 ```
 
 O añadir soporte a _TypeScript_ después:
