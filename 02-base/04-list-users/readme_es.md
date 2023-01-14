@@ -141,7 +141,6 @@ body {
   grid-template-rows: 20px;
   grid-auto-rows: 80px;
   grid-gap: 10px 5px;
-  max-width: 40vw;
 }
 
 .header {

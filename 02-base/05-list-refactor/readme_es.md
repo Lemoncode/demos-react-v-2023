@@ -59,8 +59,8 @@ export const App = () => {
 - Ahora si cometemos una equivocación al escribir uno de los campos en nuestro
   componente fila, el IDE nos lo marcará en rojo.
 
-- La siguiente mejora que vamos a introducir tiene que ver con el JSX que genramos,
-  fijate que apenas hemos metido una tabla y ya nos cuesta seguirlo, ¿No podríamos
+- La siguiente mejora que vamos a introducir tiene que ver con el JSX que generamos,
+  fíjate que apenas hemos metido una tabla y ya nos cuesta seguirlo, ¿No podríamos
   simplificar esto? La respuesta si, podemos extraer la parte que pinta un miembro
   en la tabla a un componente, esto lo podemos dejar en el mismo fichero o sacarlo
   a un fichero aparte, vamos a ello:
@@ -192,6 +192,8 @@ export const App = () => {
   );
 };
 ```
+
+> Un ejercicio sencillo, crea un componente member-table header que encapsule la cabecera de la tabla, evalúa si merece la pena o no (y también si en mismo fichero o en uno aparte)
 
 ¿Podemos seguir limpiando este código y montar algo que a futuro se mantenible y escalable? La respuesta es si, lo veremos
 más adelante.
