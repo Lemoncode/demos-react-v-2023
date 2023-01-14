@@ -193,7 +193,7 @@ export const App = () => {
 };
 ```
 
-> Un ejercicio sencillo, crea un componente member-table header que encapsule la cabecera de la tabla, evalúa si merece la pena o no (y también si en mismo fichero o en uno aparte)
+> Esperamos ejercicios (apartado siguiente) para practicar sobre lo aprendido.
 
 ¿Podemos seguir limpiando este código y montar algo que a futuro se mantenible y escalable? La respuesta es si, lo veremos
 más adelante.
