@@ -14,14 +14,14 @@ componente se monta en el DOM.
 
 Hay muchas operaciones que quieres ejecutar justo cuando se carga en
 el DOM del navegador tu componente (cuando se empieza a ver), por
-ejemplo cargar una ficha de un cliente de una API REST de servidor.
+ejemplo cargar una ficha de un cliente de una API REST de servidor (ojo en las ultimas versiones de
+React no se aconseja usar useEffect para esto).
 
 También hay operaciones que queremos poder ejecutar cuando cambie un
 valor, o en después de cada render.
 
 ¿Qué pasa si esas operaciones no son síncronas? Por ejemplo quiero
-tirar de un setTimeout o hacer un llamada a un servidor, esto devolvera una promesa, no es nada seguro ejecutar esto directamente en un componente funcional
-ya que este se ejecuta y destruye, para esto (gestionar side effects) tenemos
+tirar de un setTimeout o hacer un llamada a un servidor, esto devolverá una promesa, no es nada seguro ejecutar esto directamente en un componente funcional ya que este se ejecuta y destruye, para esto (gestionar side effects) tenemos
 _React.useEffect_
 
 En este ejemplo vamos a ver como cambiar un nombre, justo cuando se
@@ -94,25 +94,40 @@ a ejecutar el código…
 
 **React.useEffect**
 
-En su primer parametro un código que puede contener sideffects
+En su primer parámetro un código que puede contener side effects
 (una llamada a servidor, un setTimeout...).
 
-Si no le informamos más parametros, esta función se ejecutara siempre
-despues de cada render.
+Si no le informamos más parámetros, esta función se ejecutara siempre
+después de cada render.
+
+Si quieres probarlo:
+
+```tsx
+React.useEffect(() => {
+  setUsername(`John`);
+});
+```
 
 Esto no está mal, pero mucha veces nos hace falta acotar la ejecución
-de cierto código (ejecutate sólo después del primer render del componente,
-ejecutate sólo antes ciertas condiciones), por ejemplo podríamos decirle
+de cierto código (ejecútate sólo después del primer render del componente,
+ejecútate sólo antes ciertas condiciones), por ejemplo podríamos decirle
 al código que se ejecutará sólo cuando cambiará la propiedad _username_
 
 ```tsx
 React.useEffect(() => {
-  setUsername("John");
+  setUsername(`John ${Math.random()}`);
 }, [name]);
 ```
 
 Este ejemplo sería un poco tonto porque estamos modificando _username_ dentro
-del propio _useEffect_ se metería en un bucle infinito.
+del propio _useEffect_ y se metería en un bucle infinito, si lo quieres probar:
+
+```diff
+React.useEffect(() => {
+-  setUsername("John");
++  setUsername(`John ${Math.random()}`);
+}, [name]);
+```
 
 Un tema interesante:
 
