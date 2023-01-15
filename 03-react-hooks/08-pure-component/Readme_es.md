@@ -6,7 +6,7 @@ Este ejemplo toma como punto de partida el ejemplo _07-custom-hook_.
 
 Hay veces en las que nos hace falta hilar fino y sólo volver a repintar un componente si sus propiedades han cambiado, si trabajamos con estructuras inmutables sólo tenemos que hacer un shallow compare.
 
-Esto lo podíamos hacer facilmente con componentes de clase ¿ Cómo podemos hacerlo en componente de tipo función?
+Esto lo podíamos hacer fácilmente con componentes de clase ¿ Cómo podemos hacerlo en componente de tipo función?
 Vamos a ello.
 
 ## Paso a Paso
