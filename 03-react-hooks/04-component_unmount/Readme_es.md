@@ -107,7 +107,7 @@ export const MyChildComponent = () => {
   }, []);
 ```
 
-¿Para que me puede servir esto? Imaginate que abres una conexión a un websocket
+¿Para que me puede servir esto? Imagínate que abres una conexión a un websocket
 y quieres cerrarla cuando el usuario oculte el componente, ¿ cómo liberas
 recursos de forma ordenada? Aquí lo tienes.
 
