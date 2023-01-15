@@ -15,24 +15,11 @@ un código justo después de cada renderizado.
 npm install
 ```
 
-- Vamos abrir el fichero _demo.js_ y crear el ejemplo de un componente
+- Vamos abrir el fichero _demo.tsx_ y crear el ejemplo de un componente
   padre y un hijo que se muestra dependiendo de una condición booleana.
 
 ```tsx
 import React from "react";
-
-export const MyComponent = () => {
-  const [visible, setVisible] = React.useState(false);
-
-  return (
-    <>
-      {visible && <MyChildComponent />}
-      <button onClick={() => setVisible(!visible)}>
-        Toggle Child component visibility
-      </button>
-    </>
-  );
-};
 
 const MyChildComponent = () => {
   const [userInfo, setUserInfo] = React.useState({
@@ -56,10 +43,23 @@ const MyChildComponent = () => {
     </div>
   );
 };
+
+export const MyComponent = () => {
+  const [visible, setVisible] = React.useState(false);
+
+  return (
+    <>
+      {visible && <MyChildComponent />}
+      <button onClick={() => setVisible(!visible)}>
+        Toggle Child component visibility
+      </button>
+    </>
+  );
+};
 ```
 
 - Ahora viene la parte interesante, vamos a llamar a _React.useEffect_ sólo
-  informando el primer parametro.
+  informando el primer parámetro (el segundo, con el array de dependencias lo obviamos).
 
 ```diff
 const MyChildComponent = () => {
