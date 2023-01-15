@@ -22,7 +22,7 @@ npm install
 ```
 
 - Vamos abrir el fichero _demo.js_ y vamos añadir una entrada en el
-  estado que almacene el filtro actual de busqueda, y otra en la que almacene
+  estado que almacene el filtro actual de búsqueda, y otra en la que almacene
   una lista de usuarios.
 
 _./src/demo.tsx_
@@ -70,7 +70,7 @@ export const MyComponent = () => {
 **OJO !!! Typicode** corre en un heroku gratuito que se duerme cada X tiempo :)
 Vamos a probar con otras API.
 
-Ojo, que esto impactara en el codigo, tenemos que meter algún cambio y
+Ojo, que esto impactara en el código, tenemos que meter algún cambio y
 ver que devuelven estas api, esto lo haremos como ejercicio.
 
 **EJERCICIO RICK AND MORTY API**
@@ -87,7 +87,7 @@ React.useEffect(() => {
 }, [filter]);
 ```
 
-- Si ejecutamos este código podemos ver que la opcíon de filtrado funciona.
+- Si ejecutamos este código podemos ver que la opción de filtrado funciona.
 
 ```bash
 npm start
@@ -151,7 +151,7 @@ export const MyComponent = () => {
   const [filter, setFilter] = React.useState("");
   const [userCollection, setUserCollection] = React.useState([]);
 -  const [debouncedFilter] = useDebounce(filter, 500);
-+  const deferredFilter = React.useDeferredValue(filter, {timeoutMs:500 });
++  const deferredFilter = React.useDeferredValue(filter);
 ```
 
 ```diff
