@@ -70,7 +70,7 @@ export const MyComponent = () => {
 };
 ```
 
-Si no estuvieramos al tanto del problema con las closures, esperaríamos
+Si no estuviéramos al tanto del problema con las closures, esperaríamos
 que el mensaje final fuera "Total segundos: 1", pero lo ejecutaremos y veremos que
 el mensaje que aparece por pantalla es "Total segundos: 0"
 
@@ -83,7 +83,7 @@ Para solucionar esto, los chicos de Facebook nos proveed del hook _useRef_, esto
   en un render futuro, se tendrá cuenta en uno pasado (una llamada asíncrona.)
 - Cuando viene otro render, _useRef_ devuelve la misma instancia del objeto.
 
-Veamoslo en acción:
+Veámoslo en acción:
 
 _./src/demo.tsx_
 
@@ -124,7 +124,7 @@ export const MyComponent = () => {
 npm start
 ```
 
-- Esto esta muy bien ¿ Pero tenemos forma de evitarlo? Si hubiesemos
+- Esto esta muy bien ¿ Pero tenemos forma de evitarlo? Si hubiésemos
   usado un objeto sí, veamos como funciona el SetState utilizando una
   función para asignar el valor.
 
