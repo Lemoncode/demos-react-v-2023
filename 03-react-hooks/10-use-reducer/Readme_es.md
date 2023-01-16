@@ -153,7 +153,7 @@ reducer que hemos creado anteriormente, y el segundo es el estado inicial.
 
 Por otro devuelve un array (como en _useState_), sobre este array podemos
 hacer destructuring, por un lado nos traemos la foto del estado actual
-en el primer elemento del array, y por otro nos da un \_dispatcher_,
+en el primer elemento del array, y por otro nos da un \_dispatcher\_,
 este dispatcher actua como un autobus, carga la acción que le demos
 y la lleva la función reducer que actualiza el estado.
 
@@ -236,7 +236,7 @@ _./src/demo.tsx_
 Si ejecutamos el ejemplo podemos ver que ya no se nos da el problema de
 rerender, ¿ Por qué? Porque la funcion _dispatch_ no se regenera en cada render.
 
-Utilizar _useReducer_ en este ejemplo ha sido como matar moscas a cañonazos, 
+Utilizar _useReducer_ en este ejemplo ha sido como matar moscas a cañonazos,
 hemos elegido un ejemplo sencillo para poder aprender como funciona, lo
 normal es que uses esto en casos complejos en los que tengas un estado rico,
 y un monton de niveles de subcomponentes.
@@ -247,6 +247,10 @@ y también lanzando acciones esto hace que tus componentes sean menos
 promocionables, va a ser más duro hacerlos reusables. Tienes que elegir
 bien donde parar de usar dispatch y usar una firma convencional en componentes
 que veas que pueden ser reusables.
+
+Si te fijas no hemos tipado del todo bien las acciones (el payload tenía un any bastante peligroso), un ejemplo de como tiparlo:
+
+https://github.com/Lemoncode/react-advanced/blob/main/01-react/02-dom/03-drag-drop/03-drop-reducer/readme_es.md
 
 # ¿Te apuntas a nuestro máster?
 
