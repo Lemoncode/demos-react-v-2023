@@ -108,7 +108,7 @@ export const LoginPage: React.FC = () => {
 
 - Para terminar vamos a hacer run refactor con el formulario de login,
   vamos a meterlo dentro de un formulario, ¿Por qué, así lo hacemos
-  más accesible y por ejeemplo el botón de envío se ejecuta al pulsar enter.
+  más accesible y por ejemplo el botón de envío se ejecuta al pulsar enter.
 
 ```diff
   return (
