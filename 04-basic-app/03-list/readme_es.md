@@ -138,7 +138,7 @@ _./src/list.tsx_
 ```
 
 - Hasta aquí bien, pero yo quiero que cuando el usuario pinche en el nombre de un
-  miembro navega a la página de detalle de la aplicación para mostrar la ficha, de
+  miembro navegue a la página de detalle de la aplicación para mostrar la ficha, de
   primeras podríamos pensar en construir algo así como:
 
 ```diff
