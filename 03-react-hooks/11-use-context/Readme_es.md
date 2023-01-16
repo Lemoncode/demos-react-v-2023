@@ -8,8 +8,8 @@ Uno de los puntos fuertes de React es que conviertes tu componentes en cajas
 negras, se conectan al exterior mediante un contrato que son las Props, esto
 hace que React sea muy robusto y que fácilmente se puedan promocionar componentes específicos a reusables.
 
-Hasta aquí todo genial, pero... ¿Qué pasa si tengo datos tranversales? Es decir
-que pasa con los típicos datos comunes como el nombre y los roles que tiene el usuario que se ha logado en la aplicacíon, o que pasa cuando quiero navegar de una
+Hasta aquí todo genial, pero... ¿Qué pasa si tengo datos transversales? Es decir
+que pasa con los típicos datos comunes como el nombre y los roles que tiene el usuario que se ha logado en la aplicación, o que pasa cuando quiero navegar de una
 ventana a otra, si seguimos los principios de React tendríamos esa información en el
 componente padre de la aplicación e iríamos pasando de padre a hijo la propiedad, esto es malo por varios motivos:
 
