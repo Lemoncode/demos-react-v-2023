@@ -73,7 +73,7 @@ export const MyComponent = () => {
 - Si ejecutamos, podemos ver como ahora nos da el resultado actual cuando pulsamos
   en el botón.
 
-Más info interesante sobre useRef y ForwardRef
+Más info interesante sobre useRef y ForwardRef: https://www.lemoncode.tv/curso/react-forward-ref/leccion/react-forward-ref
 
 # ¿Te apuntas a nuestro máster?
 
