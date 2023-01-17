@@ -18,7 +18,9 @@ Discuss what _npx_ is and why not _npm install create-react-app -g_
 
 Comment on structure, and comment on how to create _typescript_ project
 
+```bash
 npx create-react-app my-app --template typescript
+```
 
 And add _TypeScript_ support afterwards
 
