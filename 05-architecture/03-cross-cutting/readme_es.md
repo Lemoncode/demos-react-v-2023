@@ -28,7 +28,7 @@ En este ejemplo hemos optado por _core_, razones:
 
 - Primero definamos la estructura de datos del perfil...
 
-_./src/core/profile/profile.vm.ts_
+_./src/core/profile/profile.model.ts_
 
 ```tsx
 export interface UserProfile {
@@ -46,7 +46,7 @@ _./src/core/profile/profile.context.tsx_
 
 ```tsx
 import React from "react";
-import { UserProfile, createEmptyUserProfile } from "./profile.vm";
+import { UserProfile, createEmptyUserProfile } from "./profile.model";
 
 interface Context extends UserProfile {
   setUserProfile: (userProfile: UserProfile) => void;

@@ -24,6 +24,26 @@ mkdir layouts
 - En primer lugar vamos a crear un diseño que centrará el contenido, este diseño nos permitirá
   simplificar nuestra página de inicio de sesión:
 
+Aqui va el estilado:
+
+_./src/styles.css_
+
+```diff
+body {
+  font-family: Sans-Serif;
+}
+
++ .layout-center {
++  display: grid;
++  grid-template-columns: 1fr;
++  align-items: center;
++  justify-items: center;
++  margin-top: 2rem;
++ }
+```
+
+Aquí va el componente
+
 _./src/layouts/center.layout.tsx_
 
 ```tsx
@@ -114,13 +134,13 @@ body {
   font-family: Sans-Serif;
 }
 
-+ .layout-center {
-+  display: grid;
-+  grid-template-columns: 1fr;
-+  align-items: center;
-+  justify-items: center;
-+  margin-top: 2rem;
-+ }
+.layout-center {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  margin-top: 2rem;
+}
 
 + .layout-app-container {
 +  display: grid;
@@ -196,7 +216,7 @@ _./src/scenes/list.tsx_
 ```
 
 Ahora entremos en detalles, detente un segundo e intenta añadir
-el diseño en esas páginas por ti mismo.
+el diseño en esta página por ti mismo.
 
 _./src/scenes/detail.tsx_
 
