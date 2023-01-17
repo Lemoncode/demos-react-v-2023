@@ -10,7 +10,7 @@ npx create-react-app my-app
 
 How to upgrade
 
-````bash
+```bash
 npm install react-scripts@latest
 ```
 
