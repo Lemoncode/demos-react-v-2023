@@ -4,7 +4,7 @@ To create such an application
 
 https://create-react-app.dev/
 
-````bash
+```bash
 npx create-react-app my-app
 ```
 
