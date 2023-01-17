@@ -234,10 +234,6 @@ export const LoginPage: React.FC = () => {
 };
 ```
 
-**EJERCICIO**
-
-- Eso estuvo bien, apliquemos lo que hemos aprendido, ... paremos e intentemos importar a pods la página de la lista.
-
 - Primero vamos a crear el pod de la lista
 
 ```bash
@@ -375,8 +371,12 @@ import { AppLayout } from "@/layouts";
 };
 ```
 
+**EJERCICIO**
+
+- Eso estuvo bien, apliquemos lo que hemos aprendido, ... paremos e intentemos importar a pods la página de detalle.
+
 - Vamos a refactorizar el componente de detalle, podríamos pensar que esto es sólo un _tak_ aburrido, PEROOOO.... hay un buen elemento nuevo
-  para dicutir: estamos leyendo parámetros de la cadena de consulta, quien debe tomar la responsabilidad en la lectura de este valor,
+  para discutir: estamos leyendo parámetros de la cadena de consulta, quien debe tomar la responsabilidad en la lectura de este valor,
   tenemos dos opciones:
   - Dejar que la escena se encargue de esto y pasarlo como un prop al pod.
   - Dejar que el pod se encargue de esto y usar el hook useParams de react router para obtener directamente los datos.
