@@ -361,6 +361,26 @@ export const ListContainer: React.FC = () => {
 };
 ```
 
+Y ya que estamos podemos move, api y api-model a una carpeta, y creamos un barrel:
+
+_./src/pods/list/api/index.ts_
+
+```ts
+export * from "./list.api-model";
+export * from "./list.api";
+```
+
+Y actualizamos imports:
+
+_./src/list/list.repository.ts_
+
+```diff
+import { MemberEntity } from "./list.vm";
+- import { getMemberCollection as getMemberCollectionApi } from "./api/list.api";
++ import { getMemberCollection as getMemberCollectionApi } from "./api";
+import { mapMemberCollectionFromApiToVm } from "./list.mapper";
+```
+
 Qué beneficios obtenemos al seguir este enfoque (en un escenario real):
 
 - Cada parte hace su propio trabajo.
@@ -497,5 +517,3 @@ _./src/detail.container.tsx_
 +      .then(memberDetail => setMember(memberDetail));
   }, []);
 ```
-
-
