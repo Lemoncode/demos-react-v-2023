@@ -20,6 +20,12 @@ Si un día necesitas hacer un upgrade de un proyecto existente, lo puedes hacer 
 npm install react-scripts@latest
 ```
 
+Y si un día quieres tomar control abosoluto del proyecto (ojo, esto no tiene vuelta atrás):
+
+```
+npm run eject
+```
+
 Utilizamos _npx_ para traernos siempre la última versión de _create-react-app_. Si lo hicieramos con _npm install create-react-app -g_,
 nos instalaría la versión actual en nuestra máquina de forma global, y si creamos una aplicación en un tiempo no utilizaría la última versión.
 
