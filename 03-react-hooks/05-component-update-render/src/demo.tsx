@@ -1,18 +1,5 @@
 import React from "react";
 
-export const MyComponent = () => {
-  const [visible, setVisible] = React.useState(false);
-
-  return (
-    <>
-      {visible && <MyChildComponent />}
-      <button onClick={() => setVisible(!visible)}>
-        Toggle Child component visibility
-      </button>
-    </>
-  );
-};
-
 const MyChildComponent = () => {
   const [userInfo, setUserInfo] = React.useState({
     name: "John",
@@ -39,5 +26,18 @@ const MyChildComponent = () => {
         onChange={(e) => setUserInfo({ ...userInfo, lastname: e.target.value })}
       />
     </div>
+  );
+};
+
+export const MyComponent = () => {
+  const [visible, setVisible] = React.useState(false);
+
+  return (
+    <>
+      {visible && <MyChildComponent />}
+      <button onClick={() => setVisible(!visible)}>
+        Toggle Child component visibility
+      </button>
+    </>
   );
 };

@@ -88,7 +88,7 @@ React.useEffect(() => {
 +      console.log(
 +        "B. Cleanup function called after every render"
 +      );
-+  });
+  });
 ```
 
 - Si ejecutamos podemos ver como se invocan las dos funciones.
