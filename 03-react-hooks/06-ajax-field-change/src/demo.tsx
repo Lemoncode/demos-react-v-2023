@@ -3,22 +3,20 @@ import { useDebounce } from "use-debounce";
 
 export const MyComponent = () => {
   const [filter, setFilter] = React.useState("");
+  const [debouncedFilter] = useDebounce(filter, 500);
   const [userCollection, setUserCollection] = React.useState([]);
-  const deferredFilter = React.useDeferredValue(filter);
 
-  // Load full list when the component gets mounted and filter gets updated
   React.useEffect(() => {
     fetch(
-      `https://jsonplaceholder.typicode.com/users?name_like=${deferredFilter}`
+      `https://jsonplaceholder.typicode.com/users?name_like=${debouncedFilter}`
     )
       .then((response) => response.json())
       .then((json) => setUserCollection(json));
-  }, [deferredFilter]);
+  }, [debouncedFilter]);
 
   return (
     <div>
       <input value={filter} onChange={(e) => setFilter(e.target.value)} />
-      {deferredFilter}
       <ul>
         {userCollection.map((user, index) => (
           <li key={index}>{user.name}</li>
