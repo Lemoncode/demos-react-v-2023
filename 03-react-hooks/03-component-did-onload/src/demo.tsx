@@ -8,7 +8,7 @@ export const MyComponent = () => {
     setTimeout(() => {
       setUsername("John");
     }, 1500);
-  }, []);
+  }, [username]);
 
   return (
     <>
