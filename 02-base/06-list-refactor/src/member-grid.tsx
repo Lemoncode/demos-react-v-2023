@@ -1,8 +1,8 @@
 import React from "react";
 import { MemberEntity } from "./model";
-import { MemberTableRow } from "./member-table-row";
+import { MemberGridRow } from "./member-grid-row";
 
-export const MemberTable = () => {
+export const MemberGrid = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
 
   React.useEffect(() => {
@@ -17,7 +17,7 @@ export const MemberTable = () => {
       <span className="header">Id</span>
       <span className="header">Name</span>
       {members.map((member) => (
-        <MemberTableRow key={member.id} member={member} />
+        <MemberGridRow key={member.id} member={member} />
       ))}
     </div>
   );

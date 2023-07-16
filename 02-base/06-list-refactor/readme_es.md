@@ -29,6 +29,8 @@ _./src/app.tsx_
 - </>
 ```
 
+¿Esto es un hack? No... lo tienen documentado los chicos de React: https://legacy.reactjs.org/docs/fragments.html#keyed-fragments
+
 - Lo segundo, ahora mismo no estamos tipando la lista de miembros que recibimos de
   github, ¿ No estaría bien tiparla para evitar así cometer fallos tontos al, por ejemplo,
   escribir lo nombres de los campos?, vamos a ello:
@@ -65,7 +67,7 @@ export const App = () => {
   en la tabla a un componente, esto lo podemos dejar en el mismo fichero o sacarlo
   a un fichero aparte, vamos a ello:
 
-_./src/member-table-row.tsx_
+_./src/member-grid-row.tsx_
 
 ```tsx
 import React from "react";
@@ -75,11 +77,11 @@ interface Props {
   member: MemberEntity;
 }
 
-export const MemberTableRow: React.FC<Props> = (props) => {
+export const MemberGridRow: React.FC<Props> = (props) => {
   const { member } = props;
 
   return (
-    <React.Fragment key={member.id}>
+    <React.Fragment>
       <img src={member.avatar_url} />
       <span>{member.id}</span>
       <span>{member.login}</span>
@@ -88,7 +90,9 @@ export const MemberTableRow: React.FC<Props> = (props) => {
 };
 ```
 
-Fijate que interesante como un componente se queda como una caja negra que expone su interacción con
+> Importante, no nos hace falta poner el _key_ aquí, no hay ningún bucle (lo usaremos en el componente padre)
+
+Fíjate que interesante como un componente se queda como una caja negra que expone su interacción con
 el exterior vía propiedades.
 
 - Ahora podemos sustituirlo en App:
@@ -98,7 +102,7 @@ _./src/app.tsx_
 ```diff
 import React from "react";
 import { MemberEntity } from './model';
-+ import { MemberTableRow } from './member-table-row';
++ import { MemberGridRow } from './member-grid-row';
 ```
 
 ```diff
@@ -108,7 +112,7 @@ import { MemberEntity } from './model';
       <span className="header">Id</span>
       <span className="header">Name</span>
       {members.map((member) => (
-+          <MemberTableRow key={member.id} member={member}/>
++          <MemberGridRow key={member.id} member={member}/>
 -          <React.Fragment key={member.id}>
 -            <img src={member.avatar_url} />
 -            <span>{member.id}</span>
@@ -124,16 +128,16 @@ import { MemberEntity } from './model';
 - Un último paso, el componente _App_ sigue teniendo demasiado código, debería sólo de instanciar
   el componente principal y punto, vamos a simplificar esto.
 
-- Nos creamos un componente que se llame _member-table.tsx_ y encapsulamos la tabla en dicho componente.
+- Nos creamos un componente que se llame _member-grid.tsx_ y encapsulamos la tabla en dicho componente.
 
-_./src/member-table.tsx_
+_./src/member-grid.tsx_
 
 ```tsx
 import React from "react";
 import { MemberEntity } from "./model";
-import { MemberTableRow } from "./member-table-row";
+import { MemberGridRow } from "./member-table-row";
 
-export const MemberTable = () => {
+export const MemberGrid = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
 
   React.useEffect(() => {
@@ -148,7 +152,7 @@ export const MemberTable = () => {
       <span className="header">Id</span>
       <span className="header">Name</span>
       {members.map((member) => (
-        <MemberTableRow key={member.id} member={member} />
+        <MemberGridRow key={member.id} member={member} />
       ))}
     </div>
   );
@@ -162,7 +166,7 @@ _./src/app.tsx_
 ```diff
 import React from "react";
 - import { MemberEntity } from './model';
-+ import {MemberTable} from './member-table';
++ import {MemberGrid} from './member-grid';
 
 export const App = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
@@ -174,7 +178,7 @@ export const App = () => {
 -  }, []);
 
   return (
-+    <MemberTable/>
++    <MemberGrid/>
 -    <>
 -      <div className="user-list-container">
 -        <span className="header">Avatar</span>
@@ -192,8 +196,6 @@ export const App = () => {
   );
 };
 ```
-
-> Esperamos ejercicios (apartado siguiente) para practicar sobre lo aprendido.
 
 ¿Podemos seguir limpiando este código y montar algo que a futuro se mantenible y escalable? La respuesta es si, lo veremos
 más adelante.

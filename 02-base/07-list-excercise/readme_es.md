@@ -6,7 +6,7 @@ Ahora es tu turno de mojarte las manos codificando :)
 
 # Ejercicio A
 
-- El componente memberTable era una cosa genial, y contiene
+- El componente memberGrid esta muy bien, y contiene
   la cabecera y el subcomponente member Item, ¿podrías crear
   un subcomponente para la cabecera (jugaremos con esto de tener
   el componente en el mismo archivo o en uno separado).
@@ -22,6 +22,6 @@ Ahora es tu turno de mojarte las manos codificando :)
 Pistas ¿ Qué tienes que tocar?
 
 1. Actualiza el modelo y añade el campo de perfil
-2. Actualiza el componente member-table-row, añade una columna más
+2. Actualiza el componente member-grid-row, añade una columna más
 3. En esa columna muestra el nuevo campo y mételo
    dentro de un anchor (un enlace de html)
