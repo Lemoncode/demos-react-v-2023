@@ -59,13 +59,13 @@ export const MyComponent = () => {
   ¿ Cómo puede ser esto posible si sólo le pasamos como propiedad _resetNameCallback_
   y tenemos el componente envuelto en un _React.memo_.
 
-Si pusiermoas el modo detective y utilizaramos el hook de ayuda _whyDidYouUpdate_
-nos daríamos cuenta que el culpable es la funcióna: _resetNameCallback_
+Si pusiéramos el modo detective y utilizáramos el hook de ayuda _whyDidYouUpdate_
+nos daríamos cuenta que el culpable es la funciona: _resetNameCallback_
 ¿Por que? porque se crea una nueva en cada render... así _React.memo_ dispara el
 render porque el puntero a la propiedad cambia.
 
 ¿ Qué podemos hacer para solucionar esto? Utilizar el hook _React.useCallback_
-y tal como en _React.useEffect_ pasarle como segundo parametro un array vacio.
+y tal como en _React.useEffect_ pasarle como segundo parámetro un array vacío.
 
 ```diff
 import React from "react";
@@ -107,10 +107,10 @@ const ResetValue = React.memo(props => {
 
 ¿ Cómo funciona esto? _useCallback_ guarda la función que se creo originalmente,
 y devuelve esta en vez de crear una nueva en cada render, esto lo conseguimos
-pasandole un array vacio como segundo parametro (como hacíamos con _React.useEffect_)
+pasándole un array vacío como segundo parámetro (como hacíamos con _React.useEffect_)
 si queremos que se reevalue dependiendo del valor de una propiedad o estado, podemos
-añadirlas al segundo aprametro de este callbakc (al igual que con useEffect), y si
-omitimos el segundo parametro, esta función se reevaluara después de cada render.
+añadirlas al segundo parámetro de este callback (al igual que con useEffect), y si
+omitimos el segundo parámetro, esta función se reevaluara después de cada render.
 
 # ¿Te apuntas a nuestro máster?
 
