@@ -29,8 +29,7 @@ npm install @types/react @types/react-dom --save-dev
 
 Así tenemos la librería de React y los bindings para que se integre con un navegador web.
 
-- En el index.html vamos a meter el _div_ que nos servirá como punto de entrada para instanciar
-  nuestra aplicación React.
+- En el index.html vamos a meter el _div_ que nos servirá como punto de entrada para instanciar nuestra aplicación React.
 
 _./src/index.html_
 
@@ -53,7 +52,7 @@ export const App = () => {
 };
 ```
 
-- Es hora de instanciar ese compente principal, para poder integrarlo con el navegador
+- Es hora de instanciar ese componente principal, para poder integrarlo con el navegador
   tenemos que hacer uso a _ReactDOM.render_
 
 _./src/index.tsx_
@@ -69,10 +68,8 @@ const root = createRoot(container);
 root.render(<App />);
 ```
 
-- Vamos por buen camino, pero si intentamos ejecutar esto no va fallar, ya que _babel_ no sabe
-  como transformar el _jsx_ (recordemos que esto era un azúcar, que en realidad era un XML) a
-  javaScript, para que babel sea capaz de entender esto tenemos que instalar el _preset_
-  _@babel/preset-react_
+- Vamos por buen camino, pero si intentamos ejecutar esto no va fallar, ya que _babel_ no sabe como transformar el _jsx_ (recordemos que esto era un azúcar, que en realidad era un XML) a javaScript, para que babel sea capaz de entender esto tenemos que instalar el _preset_
+_@babel/preset-react_
 
 Primero lo instalamos
 

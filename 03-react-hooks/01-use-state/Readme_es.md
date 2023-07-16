@@ -95,7 +95,7 @@ _React.useState_.
 
 - Se inicializa con un valor por defecto.
 
-- Te devuelve un array que contiene una especie getter y un setter (te permite
+- Te devuelve un array que contiene una especie de getter y un setter (te permite
   acceder al valor que está en useState y te permite
   hacer una petición y setearlo de forma asíncrona).
 
