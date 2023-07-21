@@ -18,12 +18,7 @@ export const MyComponent: React.FC = () => {
       </h4>
       <input
         value={userInfo.name}
-        onChange={(e) =>
-          setUserInfo({
-            ...userInfo,
-            name: e.target.value,
-          })
-        }
+        onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
       />
     </>
   );

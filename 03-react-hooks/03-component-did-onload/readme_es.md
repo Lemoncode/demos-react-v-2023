@@ -64,7 +64,7 @@ npm start
 - Vemos que el campo nombre está en blanco, esto es normal ya que
   le hemos asignado el valor inicialización a cade en blanco.
 
-- ¿Y si quisieramos asignar un valor justo cuando se monta el componente
+- ¿Y si quisiéramos asignar un valor justo cuando se monta el componente
   en el dom? Podemos hacer uso de _React.useEffect_
 
 ```diff
@@ -113,33 +113,26 @@ de cierto código (ejecútate sólo después del primer render del componente,
 ejecútate sólo antes ciertas condiciones), por ejemplo podríamos decirle
 al código que se ejecutará sólo cuando cambiará la propiedad _username_
 
+Este ejemplo sería un poco tonto porque estamos modificando _username_ dentro
+del propio _useEffect_ y se metería en un bucle infinito, si lo quieres probar:
+
 ```tsx
 React.useEffect(() => {
   setUsername(`John ${Math.random()}`);
 }, [name]);
 ```
 
-Este ejemplo sería un poco tonto porque estamos modificando _username_ dentro
-del propio _useEffect_ y se metería en un bucle infinito, si lo quieres probar:
-
-```diff
-React.useEffect(() => {
--  setUsername("John");
-+  setUsername(`John ${Math.random()}`);
-}, [name]);
-```
-
 Un tema interesante:
 
-- Hemos visto que si no informamos el segundo parametro no para de ejecutarse
-  despues de cada render.
+- Hemos visto que si no informamos el segundo parámetro no para de ejecutarse
+  después de cada render.
 
-- También que si informamos una lista de valores como segundo parametro
+- También que si informamos una lista de valores como segundo parámetro
   se ejecuta cuando estos valores cambian.
 
 Peeero ¿Y si informamos esa lista como vacía? Si hacemos esto, el código
 dentro del useEffect se ejecutará la primera vez (después del primer renderizado)
-y no volvera a ejecutarse más ya que le estamos diciendo que no depende de ningún
+y no volverá a ejecutarse más ya que le estamos diciendo que no depende de ningún
 valor de las propiedades o del estado, de esta manera no volverás a ejecutarse
 (Para los que ya hayáis trabajado antes con React esto se parece al
 componentDidMount de los componentes de clase de React).

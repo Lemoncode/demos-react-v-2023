@@ -110,6 +110,8 @@ Lo único que tendríamos que hacer:
 npm install use-debounce --save
 ```
 
+_./src/demo.tsx_
+
 ```diff
 + import { useDebounce } from 'use-debounce';
 

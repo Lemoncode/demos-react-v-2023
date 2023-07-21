@@ -16,9 +16,6 @@ module.exports = {
     filename: "[name].[chunkhash].js",
     publicPath: "/",
   },
-  devServer: {
-    historyApiFallback: true,
-  },
   module: {
     rules: [
       {
@@ -55,4 +52,7 @@ module.exports = {
       template: "index.html", //Name of template in ./src
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };
