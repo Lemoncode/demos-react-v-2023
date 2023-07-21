@@ -1,5 +1,6 @@
 import React from "react";
 
+// New on React 18
 interface Props {
   children: React.ReactNode;
 }
