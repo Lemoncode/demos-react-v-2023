@@ -142,7 +142,7 @@ _./src/list.tsx_
   primeras podríamos pensar en construir algo así como:
 
 ```diff
-  <td>
+     <span>{member.id}</span>
 -    <span>{member.login}</span>
 +    <Link to={`/detail/${member.login}`}>{member.login}</Link>
   </td>
