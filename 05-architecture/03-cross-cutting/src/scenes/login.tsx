@@ -1,7 +1,7 @@
+import { routes } from "@/core";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { routes } from "core";
-import {CenterLayout} from '@/layouts';
+import { CenterLayout } from "@/layouts";
 import { ProfileContext } from "@/core/profile";
 
 export const LoginPage: React.FC = () => {
@@ -12,7 +12,6 @@ export const LoginPage: React.FC = () => {
 
   const handleNavigation = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (username === "admin" && password === "test") {
       setUserProfile({ userName: username });
       navigate(routes.list);
@@ -25,7 +24,6 @@ export const LoginPage: React.FC = () => {
     <CenterLayout>
       <form onSubmit={handleNavigation}>
         <h2>Hello from login page</h2>
-
         <div>
           <div>
             <label>Username: </label>
@@ -44,8 +42,8 @@ export const LoginPage: React.FC = () => {
           </div>
         </div>
 
-        <button type="submit">Login</button>
+        <button type="submit">login</button>
       </form>
-      </CenterLayout>
+    </CenterLayout>
   );
 };
