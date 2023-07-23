@@ -104,7 +104,7 @@ export const LoginComponent: React.FC<Props> = (props) => {
   const { onLogin } = props;
 -  const [username, setUsername] = React.useState("");
 -  const [password, setPassword] = React.useState("");
-+  const [login, setLogin] = React.useState<Login>(createEmptyLogin())
++  const [login, setLogin] = React.useState<Login>(createEmptyLogin());
 
   const handleNavigation = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -227,7 +227,7 @@ ya que esta envoltura podría ser reutilizado en otros proyectos lo añadiremos 
 - Nuestro objetivo es poder utilizar este campo como si fuera un elemento*input*, pero que
   además nos incorporé la gestión de _Formik_ para ese componente y campo.
 
-- Para ello nos creamos un componete que llamaremos _InputFormik_ y lo que hacemos es que herede
+- Para ello nos creamos un componente que llamaremos _InputFormik_ y lo que hacemos es que herede
   las propiedades de un _Input_ (esto lo puedes ver en la definición de componente donde tenemos
   `React.DetailedHTMProps`).
 
