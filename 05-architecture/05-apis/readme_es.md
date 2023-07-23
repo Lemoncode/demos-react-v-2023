@@ -1,10 +1,8 @@
 # APIS
 
-Bueno la aplicación va tomando forma :), ahora vamos a profundizar en el concepto de _pod_, nuestro objetivo es tener
-un _pod_ rico, pero separando las procesos y teniendo cada archivo con un objetivo claro.
+Bueno la aplicación va tomando forma :), ahora vamos a profundizar en el concepto de _pod_, nuestro objetivo es tener un _pod_ rico, pero separando responsabilidades y teniendo cada archivo con un objetivo claro.
 
-En este ejemplo vamos a extraer el acceso a la _rest API_ del contenedor en un archivo separado, vamos a discutir
-dónde colocar esta funcionalidad y cómo distinguir entre el modelo API del servidor y el modelo _View_ del _pod_, y cómo
+En este ejemplo vamos a extraer el acceso a la _rest API_ del contenedor en un archivo separado, vamos a discutir dónde colocar esta funcionalidad y cómo distinguir entre el modelo API del servidor y el modelo _View_ del _pod_, y cómo
 realizar conversiones entre entidades.
 
 # Pasos
@@ -12,8 +10,7 @@ realizar conversiones entre entidades.
 - Así que ahora queremos extraer el código que accede a una _rest API_ del contenedor, nuestro primer instinto podría ser crear
   una carpeta raíz _/api/_, pero ¿qué problemas podríamos tener al usar esto?
 
-- Estamos llevando lejos los _assets_ relacionados, cada vez que queremos tocar el repo y estamos en el contenedor tenemos
-  que escarbar en la carpeta _api deep blue sea_.
+- Estamos llevando lejos los _assets_ relacionados, cada vez que queremos tocar el repo y estamos en el contenedor tenemos que escarbar en la carpeta _api deep blue sea_.
 
 - Es difícil saber qué _api_ se está usando y dónde, quizás podamos introducir algún cambio por error en una _api_ determinada
   que pueda afectar a otro _pod_.
@@ -26,6 +23,7 @@ realizar conversiones entre entidades.
 Así que vamos a intentar un cambio radical, vamos a almacenar la _api_ dentro del _pod_... pero luego si quieres reutilizarla qué pasa:
 
 - Normalmente la mayoría de las llamadas que vas a hacer a una _api rest_ sólo serán utilizadas por ese pod dado y no por otros pods.
+
 - Si hay una llamada a una _api rest_ que es muy utilizada por otros pods (por ejemplo, búsquedas, etc.), entonces
   podemos promocionar esa _api_ a una carpeta _core/apis_ y usarla en todos los sitios.
 
@@ -33,11 +31,12 @@ Así que vamos a intentar un cambio radical, vamos a almacenar la _api_ dentro d
 
   - Tenemos que estar preparados para la integración "real", ahora mismo sólo estamos comprobando algún usuario/contraseña ficticio de forma
     manera sincrónica.
+
   - Por qué no crear una _API_ de cliente que devuelva una promesa con el resultado esperado, siguiendo este enfoque:
-    - Una vez que obtenemos la API del servidor real sólo tenemos que actualizar el archivo _api_, el resto de los activos / componentes no
-      se verán afectados.
-    - Podemos configurar mediante una variable de entorno si queremos utilizar la api real o el cliente simulado (esto nos permitirá
-      (esto nos permitirá realizar pruebas _e2e_, o si el servidor está caído seguir avanzando con el _mock_).
+    
+    - Una vez que obtenemos la API del servidor real sólo tenemos que actualizar el archivo _api_, el resto de los activos / componentes no se verán afectados.
+    
+    - Podemos configurar mediante una variable de entorno si queremos utilizar la api real o el cliente simulado (esto nos permitirá realizar pruebas _e2e_, o si el servidor está caído seguir avanzando con el _mock_).
 
 - Primero vamos a simular una API de cliente:
 
@@ -58,8 +57,7 @@ export const doLogin = (
 };
 ```
 
-> Para simplificar estamos usando el manejo de promesas estándar, podríamos usar async await pero necesitaría
-> alguna configuración extra (regenerator runtime).
+> Para simplificar estamos usando el manejo de promesas estándar, podríamos usar async await pero necesitaría alguna configuración extra (regenerator runtime).
 
 - Y ahora vamos a consumirlo en el contenedor del _login_.
 

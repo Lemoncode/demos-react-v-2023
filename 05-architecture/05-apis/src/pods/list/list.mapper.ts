@@ -1,5 +1,5 @@
 import * as vm from "./list.vm";
-import * as api from "./list.api-model";
+import * as api from "./list/list.api-model";
 
 export const mapMemberFromApiToVm = (
   member: api.MemberEntityApi
