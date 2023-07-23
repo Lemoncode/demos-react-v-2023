@@ -1,5 +1,5 @@
 import React from "react";
-import { UserProfile, createEmptyUserProfile } from "./profile.vm";
+import { UserProfile, createEmptyUserProfile } from "./profile.model";
 
 interface Context extends UserProfile {
   setUserProfile: (userProfile: UserProfile) => void;

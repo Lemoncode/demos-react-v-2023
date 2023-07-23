@@ -1,3 +1,7 @@
+.my-text {
+  color: blue;
+}
+
 .layout-center {
   display: grid;
   grid-template-columns: 1fr;

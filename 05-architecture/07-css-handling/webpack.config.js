@@ -18,9 +18,6 @@ module.exports = {
     filename: "[name].[chunkhash].js",
     publicPath: "/",
   },
-  devServer: {
-    historyApiFallback: true,
-  },
   module: {
     rules: [
       {
@@ -38,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: /global-css/,
+        include: /node_modules|global-css/,
         use: [
           {
             loader: "style-loader",
@@ -76,4 +73,7 @@ module.exports = {
       template: "index.html", //Name of template in ./src
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };
