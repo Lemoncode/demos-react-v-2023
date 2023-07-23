@@ -130,10 +130,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 + import { DetailPage } from "@/scenes/detail";
 ```
 
-Afinemos un poco, tener que pegar una importación por
-página suena un poco repetitivo y por otro lado si
-en el futuro decidimos agrupar algunas escenas en algunas subcarpetas
-puede repercutir en las declaraciones de importaciones de la _app_, vamos a crear un _barrel_:
+Afinemos un poco, tener que pegar una importación por página suena un poco repetitivo y por otro lado si en el futuro decidimos agrupar algunas escenas en algunas subcarpetas puede repercutir en las declaraciones de importaciones de la _app_, vamos a crear un _barrel_:
 
 _./src/scenes/index.ts_
 
@@ -186,7 +183,7 @@ Primero definimos las rutas para el _switch_ y el objeto que las define.
 
 Como se trata de un _crosscutting asset_ lo colocaremos bajo la ruta _./src/core_.
 
-_./src/core/router/routes.ts_
+_./src/core/router/routes.tsx_
 
 ```tsx
 import { generatePath } from "react-router-dom";

@@ -1,6 +1,6 @@
+import { routes } from "@/core";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { routes } from "core";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -9,7 +9,6 @@ export const LoginPage: React.FC = () => {
 
   const handleNavigation = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (username === "admin" && password === "test") {
       navigate(routes.list);
     } else {
@@ -18,30 +17,27 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleNavigation}>
-        <h2>Hello from login page</h2>
-
+    <form onSubmit={handleNavigation}>
+      <h2>Hello from login page</h2>
+      <div>
         <div>
-          <div>
-            <label>Username: </label>
-            <input
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Password: </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+          <label>Username: </label>
+          <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
+        <div>
+          <label>Password: </label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+      </div>
 
-        <button type="submit">Login</button>
-      </form>
-    </>
+      <button type="submit">login</button>
+    </form>
   );
 };

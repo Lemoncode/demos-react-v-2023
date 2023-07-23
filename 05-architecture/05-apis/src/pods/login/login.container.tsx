@@ -21,7 +21,7 @@ const useLoginHook = () => {
 };
 
 export const LoginContainer: React.FC = () => {
-  const { loginSucceededAction, loginFailedAction } = useLoginHook();
+  const {loginSucceededAction, loginFailedAction} = useLoginHook();
 
   const handleLogin = (username: string, password: string) => {
     doLogin(username, password).then((result) => {

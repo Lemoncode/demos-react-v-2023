@@ -55,7 +55,7 @@ _./webpack.config.js_
       {
         test: /\.css$/,
 -        exclude: /node_modules/,
-+        include: /global-css/,
++        include: /node_modules|global-css/,
         use: [
           {
             loader: "style-loader",
@@ -264,8 +264,7 @@ _./src/pods/login/login.component.tsx_
 +          <div className={css.container}>
 ```
 
-- Sólo para comprobar que no tendremos colisiones de nombres css, vamos a refactorizar la lista
-  componente + estilos:
+- Sólo para comprobar que no tendremos colisiones de nombres css, vamos a refactorizar la lista componente + estilos:
 
 - Vamos a crear un _css_ local que se asociará al componente de la lista:
 
@@ -371,11 +370,9 @@ _./src/global-css/_
 - }
 ```
 
-- Como podemos ver podemos tener dos selectores con el mismo nombre y no colisionarán, esto
-  es bastante útil a la hora de desarrollar componentes, podemos tener un _mindset local_ por componente.
+- Como podemos ver podemos tener dos selectores con el mismo nombre y no colisionarán, esto es bastante útil a la hora de desarrollar componentes, podemos tener un _mindset local_ por componente.
 
-- Sólo una última cosa a tener en cuenta: este _css.whatever_ es sólo una cadena de texto(podemos
-  comprobarlo depurando con las herramientas de desarrollo).
+- Sólo una última cosa a tener en cuenta: este _css.whatever_ es sólo una cadena de texto(podemoscomprobarlo depurando con las herramientas de desarrollo).
 
 ¿Cómo puedo añadir más de una clase a un elemento dado? Utilizando la interpolación, un ejemplo ficticio, por ejemplo
 
@@ -408,9 +405,7 @@ export const ListComponent: React.FC<Props> = (props) => {
 +      <div className={`${css.container} ${css.someAdditionalClass}`}>
 ```
 
-Una mejora adicional que podría implementar es una simple función que compruebe si una clase dada
-existe o no (para evitar el infierno de lo indefinido), encontrarás muchos _helpers_ como ese llamado
-_nombre de la clase compositor_, _cnc_...
+Una mejora adicional que podría implementar es una simple función que compruebe si una clase dada existe o no (para evitar el infierno de lo indefinido), encontrarás muchos _helpers_ como ese llamado _nombre de la clase compositor_, _cnc_...
 
 - En lugar de reinventar la rueda podemos probar uno de los _helpers_ incorporados:
 

@@ -10,8 +10,7 @@ implementaremos algo muy similar.
 
 # Pasos
 
-Bien, primero de todo, ¿dónde debemos mostar estos _layouts_?
-Vamos a crear una carpeta _layouts_ bajo nuestra carpeta _src_.
+Bien, primero de todo, ¿dónde debemos mostrar estos _layouts_? Vamos a crear una carpeta _layouts_ bajo nuestra carpeta _src_.
 
 ```bash
 cd src

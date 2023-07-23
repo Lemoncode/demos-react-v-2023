@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
 import { routes } from "core";
+import { Link, useParams } from "react-router-dom";
 import { AppLayout } from "@/layouts";
 
 interface MemberDetailEntity {
@@ -34,7 +34,6 @@ export const DetailPage: React.FC = () => {
   return (
     <AppLayout>
       <h2>Hello from Detail page</h2>
-      <h3>User Id: {id}</h3>
       <p> id: {member.id}</p>
       <p> login: {member.login}</p>
       <p> name: {member.name}</p>
